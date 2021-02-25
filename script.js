@@ -15,7 +15,7 @@ const randomPass = {
 };
 
 // Array of special characters to be included in password
-var specialCharacters = ["!?@#$%^&*()"];
+/*var specialCharacters = ["!?@#$%^&*()"];
 
 // Array of numeric characters to be included in password
 var numericCharacters = ["0123456789"];
@@ -24,7 +24,13 @@ var numericCharacters = ["0123456789"];
 var lowerCaseCharacters = ["abcdefghijklmnopqrstuvwxyz"];
 
 // Array of uppercase characters to be included in password
-var upperCaseCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var upperCaseCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; */
+
+//options to include in the password
+var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialCharacters = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
+var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseChracters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 //functions for generating random characters
 var randomSpecial = Math.floor(Math.random() * specialCharacters.length);
@@ -102,7 +108,15 @@ password.innerText = generatePassword(
 
 function generatePassword(special, upper, lower, number, length) {
   let generatedPassword = "";
-  const useCharacters = special + upper + lower + number
+}
+
+var useCharacters = numericCharacters.concat(specialCharacters, lowerCaseCharacters, upperCaseChracters);
+
+var randomPassword = ""
+
+for (var i = 0; i < passLength; i++) {
+  randomPassword = randomPassword + useCharacters[Math.floor(Math.random() * useCharacters.length)];
+  console.log(randomPassword)
 }
 
 // Add event listener to generate button
