@@ -5,27 +5,6 @@ var generateBtn = document.querySelector("#generate");
 const password = document.getElementById("password");
 const length = document.getElementById(passLength);
 
-const randomPass = {
-  special: randomSpecial,
-  /* these don't exist yet
-  lowercase: randomLower,
-  uppercase: randomUpper,
-  number: randomNumber
-  */
-};
-
-// Array of special characters to be included in password
-/*var specialCharacters = ["!?@#$%^&*()"];
-
-// Array of numeric characters to be included in password
-var numericCharacters = ["0123456789"];
-
-// Array of lowercase characters to be included in password
-var lowerCaseCharacters = ["abcdefghijklmnopqrstuvwxyz"];
-
-// Array of uppercase characters to be included in password
-var upperCaseCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; */
-
 //options to include in the password
 var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharacters = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
@@ -33,21 +12,22 @@ var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"
 var upperCaseChracters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 //functions for generating random characters
-var randomSpecial = Math.floor(Math.random() * specialCharacters.length);
+function randomSpecial() {
+  Math.floor(Math.random() * specialCharacters.length);
+}
 
-function randomLower () {
+function randomLower() {
   Math.floor(Math.random() * lowerCaseCharacters.length);
 }
 
-function randomUpper () {
+function randomUpper() {
   Math.floor(Math.random() * upperCaseCharacters.length);
 }
 
-function randomNumber () {
+function randomNumber() {
   Math.floor(Math.random() * numericCharacters.length);
 }
 
-console.log(randomSpecial);
 
 //prompts for criteria
 var useSpecial = confirm('Use special characters?');
@@ -66,57 +46,66 @@ var passLength = prompt('How many characters?','8-128');
 console.log(passLength);
 
 // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
-  if (passLength < 8) {
-    alert("Password must be at least 8 characters.");
+if (passLength < 8) {
+  alert("Password must be at least 8 characters.");
 }
 // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
-  if (passLength > 128) {
-    alert("Password must be no more than 128 characters.");
+if (passLength > 128) {
+  alert("Password must be no more than 128 characters.");
 }
 
-/* if user inputs something other than a number
-if (passLength = NaN) {
-  alert("Please enter a number between 8-128");
+//alert if passLength isn't a number
+if (isNaN(passLength) === true) {
+  alert('Password length must be provided as a number');
 }
-*/
 
-//this triggers if any is not selected?
+//this triggers if one is not selected?
 /*
 if (useUpper === false && useLower === false && useNumbers === false && useSpecial === false) {
   alert("Please select at least one character type.")
 }
 */
 
+// Generate a list of characters depending on toggles
+function checkCharacters(useSpecial, useUpper, useLower, useNumbers) {
+  var pickedCharacters = [];
+
+  if (useSpecial) {
+    pickedCharacters = pickedCharacters.concat(specialCharacters);
+  } 
+  if (useUpper) {
+    pickedCharacters = pickedCharacters.concat(upperCaseChracters);
+  }
+  if (useLower) {
+    pickedCharacters = pickedCharacters.concat(upperCaseChracters);
+  }
+  if (useNumbers) {
+    pickedCharacters = pickedCharacters.concat(numericCharacters);
+  }
+  return pickedCharacters
+}
+
+// Take a password length and list of characters and return a random password
+function generatePassword(passLength, pickedCharacters) {
+
+  var passwordText = ""
+
+  for (var i = 0; i < passLength; i++) {
+    passwordText = passwordText + pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
+  
+  }
+
+  return passwordText;
+}
+
 // Write password to the #password input
-/*function writePassword() {
-  var password = generatePassword();
+function writePassword() {
+  var pickedCharacters = checkCharacters(useSpecial, useUpper, useLower, useNumbers);
+  var password = generatePassword(passLength, pickedCharacters);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
-}
-*/
-
-//this goes in the box
-password.innerText = generatePassword(
-  useSpecial,
-  useUpper,
-  useLower,
-  useNumbers,
-  passLength
-);
-
-function generatePassword(special, upper, lower, number, length) {
-  let generatedPassword = "";
-}
-
-var useCharacters = numericCharacters.concat(specialCharacters, lowerCaseCharacters, upperCaseChracters);
-
-var randomPassword = ""
-
-for (var i = 0; i < passLength; i++) {
-  randomPassword = randomPassword + useCharacters[Math.floor(Math.random() * useCharacters.length)];
-  console.log(randomPassword)
 }
 
 // Add event listener to generate button
