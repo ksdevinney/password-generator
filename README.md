@@ -11,3 +11,5 @@ Upon clicking "generate password," the user will be prompted to select which cha
 ## Development
 
 This application was developed using HTML, CSS, and JavaScript. The assignment criteria required the development of JavaScript code that would store values in different arrays, prompt the user to select password requirements, run a for loop to the requested length with random selected values, and write the result to the password field. 
+
+This repository includes a video of the application in use, as well as a preview of a generated password.
