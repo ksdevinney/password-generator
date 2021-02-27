@@ -12,15 +12,6 @@ var specialCharacters = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", 
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-//declare variables
-/*var useSpecial;
-
-var useUpper;
-
-var useLower;
-
-var useNumbers; */
-
 // Take a password length and list of characters and return a random password
 function generatePassword() {
   
@@ -60,8 +51,6 @@ function generatePassword() {
     alert("Please select at least one character type.")
     return "invalid password"
   }
-  
-
   
   var pickedCharacters = [];
 
