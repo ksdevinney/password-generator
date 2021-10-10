@@ -1,58 +1,46 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-//put something in the box
-/*
-const password = document.getElementById("password");
-const length = document.getElementById(passLength); */
+const generateBtn = document.querySelector("#generate");
 
 //options to include in the password
-var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialCharacters = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
-var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialCharacters = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
+const lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // Take a password length and list of characters and return a random password
 function generatePassword() {
   
   //prompts for criteria
-  var useSpecial = confirm('Use special characters?');
+  let useSpecial = confirm('Use special characters?');
 
-  var useUpper = confirm('Use uppercase letters?');
+  let useUpper = confirm('Use uppercase letters?');
 
-  var useLower = confirm('Use lowercase letters?');
+  let useLower = confirm('Use lowercase letters?');
 
-  var useNumbers = confirm('Use numbers?'); 
+  let useNumbers = confirm('Use numbers?'); 
 
-  console.log(useSpecial, useUpper, useLower, useNumbers);
+  // console.log(useSpecial, useUpper, useLower, useNumbers);
 
   //get a number for password length
-  var passLength = prompt('How many characters?','8-128');
+  let passLength = prompt('How many characters?','8-128');
 
-  console.log(passLength);
+  // console.log(passLength);
 
   // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
   if (passLength < 8) {
-    alert("Password must be at least 8 characters.");
-  }
-  // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
-  if (passLength > 128) {
-    alert("Password must be no more than 128 characters.");
-  }
-
-  //alert if passLength isn't a number
-  if (isNaN(passLength) === true) {
+    alert("Please enter a number larger than 8");
+  } else if (passLength > 128) {
+    alert("Please enter a number less than 128")
+  } else if (isNaN(passLength) === true) {
     alert('Password length must be provided as a number');
-  }
-
-  //this triggers if one is not selected?
+  };
 
   if (!useUpper && !useLower && !useNumbers && !useSpecial) {
-    alert("Please select at least one character type.")
-    return "invalid password"
+    alert("Please select at least one character type.");
+    return "invalid password";
   }
   
-  var pickedCharacters = [];
+  let pickedCharacters = [];
 
   if (useSpecial) {
     pickedCharacters = pickedCharacters.concat(specialCharacters);
@@ -67,11 +55,14 @@ function generatePassword() {
     pickedCharacters = pickedCharacters.concat(numericCharacters);
   }
 
-  var passwordText = ""
+  let passwordText = ""
 
-  for (var i = 0; i < passLength; i++) {
-    passwordText = passwordText + pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
-  
+  for (let i = 0; i < passLength; i++) {
+    if (passLength < 8 || passLength > 128 || isNaN(passLength) === true) {
+      return ":("
+    } else {
+      passwordText = passwordText + pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
+    }
   }
 
   return passwordText;
@@ -79,8 +70,8 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
