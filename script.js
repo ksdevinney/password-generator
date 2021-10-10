@@ -32,7 +32,7 @@ function generatePassword() {
   } else if (passLength > 128) {
     alert("Please enter a number less than 128")
   } else if (isNaN(passLength) === true) {
-    alert('Password length must be provided as a number');
+    alert('Password length must be a number');
   };
 
   if (!useUpper && !useLower && !useNumbers && !useSpecial) {

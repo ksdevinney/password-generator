@@ -10,11 +10,12 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #6899E3;
 }
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #F2E4EA;
 }
 
 .wrapper {
@@ -27,11 +28,11 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: #3E4959;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: #F2E4EA;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -42,12 +43,17 @@ header {
   padding: 30px 40px;
 }
 
+.card-header {
+  color: #3E4959;
+}
+
 .card-header::after {
   content: " ";
   display: block;
   width: 100%;
   background: #e7e9eb;
   height: 2px;
+  color: #3E4959;
 }
 
 .card-body {
@@ -74,7 +80,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: #C92668;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
