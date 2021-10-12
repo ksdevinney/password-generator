@@ -19,10 +19,12 @@ function generatePassword() {
 
   let useNumbers = confirm('Use numbers?'); 
 
-  // console.log(useSpecial, useUpper, useLower, useNumbers);
-
-  //get a number for password length
+    //get a number for password length
   let passLength = prompt('How many characters?','8-128');
+
+  // let useSpecial = document.querySelector("#special-characters");
+
+  // console.log(useSpecial, useUpper, useLower, useNumbers);
 
   // console.log(passLength);
 
