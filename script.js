@@ -56,7 +56,7 @@ function generatePassword(useSpecial, useUpper, useLower, useNumbers, passLength
 
   if (!useUpper && !useLower && !useNumbers && !useSpecial) {
     alert("Please select at least one character type");
-    return "invalid password";
+    return ":(";
   }
   
   let pickedCharacters = [];
@@ -92,5 +92,4 @@ function writePassword() {
   let password = generatePassword();
 
   passwordText.value = password;
-
 }
