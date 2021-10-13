@@ -4,9 +4,11 @@ This application uses Javascript in order to create a randomized password based 
 
 ![preview of password generator](/assets/generator-preview.png)
 
-## Function
+## To Use
 
 In order to generate a password, the user must select the desired character types and input a number for the password's length. The password will be generated when the "generate password" button is clicked. If the user selects no types, an error will display. Any selected types will be randomized to the desired length, guaranteeing a unique and secure password. If the user requests a password length less than 8, greater than 128, or inputs a non-numerical response, a password will not generate. 
+
+[Deployed to GitHub Pages](https://ksdevinney.github.io/password-generator/)
 
 ## Development
 
