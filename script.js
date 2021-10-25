@@ -27,32 +27,7 @@ generateBtn.addEventListener("click", () => {
 
 // Take a password length and list of characters and return a random password
 function generatePassword(useSpecial, useUpper, useLower, useNumbers, passLength) {
-  
-  //prompts for criteria
-  // let useSpecial = confirm('Use special characters?');
-
-  // let useUpper = confirm('Use uppercase letters?');
-
-  // let useLower = confirm('Use lowercase letters?');
-
-  // let useNumbers = confirm('Use numbers?'); 
-
-  //get a number for password length
-  // let passLength = prompt('How many characters?','8-128');
-
-  // let useSpecial = document.querySelector("#special-characters");
-
-  // console.log(useSpecial, useUpper, useLower, useNumbers);
-  // console.log(passLength);
-
-  // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
-  if (passLength < 8) {
-    alert("Please enter a number larger than 8");
-  } else if (passLength > 128) {
-    alert("Please enter a number less than 128")
-  } else if (isNaN(passLength) === true) {
-    alert("Password length must be a number");
-  };
+  let passwordText = ""
 
   if (!useUpper && !useLower && !useNumbers && !useSpecial) {
     alert("Please select at least one character type");
@@ -74,8 +49,6 @@ function generatePassword(useSpecial, useUpper, useLower, useNumbers, passLength
     pickedCharacters = pickedCharacters.concat(numericCharacters);
   }
 
-  let passwordText = ""
-
   for (let i = 0; i < passLength; i++) {
     if (passLength < 8 || passLength > 128 || isNaN(passLength) === true) {
       return ":("
@@ -83,13 +56,5 @@ function generatePassword(useSpecial, useUpper, useLower, useNumbers, passLength
       passwordText = passwordText + pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
     }
   }
-
   return passwordText;
-}
-
-// Write password to the #password input
-function writePassword() {
-  let password = generatePassword();
-
-  passwordText.value = password;
 }
