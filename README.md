@@ -12,4 +12,4 @@ In order to generate a password, the user must select the desired character type
 
 ## Development
 
-This application was developed using HTML, CSS, and JavaScript. While this applciation was originally an assignment for my coding boot camp, I wanted to refactor it to make it more user-friendly (and look nicer!). The original version included pop-ups for each character type, and I have since changed these to be form input instead.
+This application was developed using HTML, CSS, and JavaScript. While this applciation was originally much more basic, I wanted to refactor it to make it more user-friendly (and look nicer!). The original version included pop-ups for each character type, and I have since changed these to be form input instead.
